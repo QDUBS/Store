@@ -1,0 +1,372 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html PUBLIC>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    
+    <link rel="stylesheet" href="{% static 'bootstrap-4.5.1-dist/css/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap-4.5.1-dist/css/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/monthlycalc.css' %}">
+    {% load crispy_forms_tags %}
+
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <!--JANUARY CALCULATIONS-->
+    <div class="january">
+        <div class="january_head">
+            <h1>JANUARY {{ date|date:"Y" }}</h1>
+        </div>
+
+        <div class="purchased">
+            <p class="caption">Total Price of Goods Purchased For The Month of January {{ date|date:"Y" }}</p>
+            <p class="value">{{ boughtTotalJanuary|intcomma }}.00</p>
+        </div>
+
+        <div class="sold">
+            <p class="caption">Total Price of Goods Sold For The Month of January {{ date|date:"Y" }}</p>
+            <p class="value">{{ soldTotalJanuary|intcomma }}.00</p>
+        </div>
+
+        <div class="miscellaneous">
+            <p class="caption">Total Price of Miscellaneous Expenses For The Month of January {{ date|date:"Y" }}</p>
+            <p class="value">{{ miscellaneousTotalJanuary|intcomma }}.00</p>
+        </div>
+
+        <div class="total">
+            <p class="caption">Total Revenue For The Month of January {{ date|date:"Y" }}</p>
+            <p class="value">{{ monthlySumTotalJanuary|intcomma }}.00</p>
+        </div>
+    </div>
+
+
+
+    <!--FEBRUARY CALCULATIONS-->
+    <div class="january">
+        <div class="january_head">
+            <h1>FEBRUARY {{ date|date:"Y" }}</h1>
+        </div>
+
+        <div class="purchased">
+            <p class="caption">Total Price of Goods Purchased For The Month of February {{ date|date:"Y" }}</p>
+            <p class="value">{{ boughtTotalFebruary|intcomma }}.00</p>
+        </div>
+
+        <div class="sold">
+            <p class="caption">Total Price of Goods Sold For The Month of February {{ date|date:"Y" }}</p>
+            <p class="value">{{ soldTotalFebruary|intcomma }}.00</p>
+        </div>
+
+        <div class="miscellaneous">
+            <p class="caption">Total Price of Miscellaneous Expenses For The Month of February {{ date|date:"Y" }}</p>
+            <p class="value">{{ miscellaneousTotalFebruary|intcomma }}.00</p>
+        </div>
+
+        <div class="total">
+            <p class="caption">Total Revenue For The Month of February {{ date|date:"Y" }}</p>
+            <p class="value">{{ monthlySumTotalFebruary|intcomma }}.00</p>
+        </div>
+    </div>
+
+
+
+    <!--MARCH CALCULATIONS-->
+    <div class="january">
+        <div class="january_head">
+            <h1>MARCH {{ date|date:"Y" }}</h1>
+        </div>
+
+        <div class="purchased">
+            <p class="caption">Total Price of Goods Purchased For The Month of March {{ date|date:"Y" }}</p>
+            <p class="value">{{ boughtTotalMarch|intcomma }}.00</p>
+        </div>
+
+        <div class="sold">
+            <p class="caption">Total Price of Goods Sold For The Month of March {{ date|date:"Y" }}</p>
+            <p class="value">{{ soldTotalMarch|intcomma }}.00</p>
+        </div>
+
+        <div class="miscellaneous">
+            <p class="caption">Total Price of Miscellaneous Expenses For The Month of March {{ date|date:"Y" }}</p>
+            <p class="value">{{ miscellaneousTotalMarch|intcomma }}.00</p>
+        </div>
+
+        <div class="total">
+            <p class="caption">Total Revenue For The Month of March {{ date|date:"Y" }}</p>
+            <p class="value">{{ monthlySumTotalMarch|intcomma }}.00</p>
+        </div>
+    </div>
+
+
+
+    <!--APRIL CALCULATIONS-->
+    <div class="january">
+        <div class="january_head">
+            <h1>APRIL {{ date|date:"Y" }}</h1>
+        </div>
+
+        <div class="purchased">
+            <p class="caption">Total Price of Goods Purchased For The Month of April {{ date|date:"Y" }}</p>
+            <p class="value">{{ boughtTotalApril|intcomma }}.00</p>
+        </div>
+
+        <div class="sold">
+            <p class="caption">Total Price of Goods Sold For The Month of April {{ date|date:"Y" }}</p>
+            <p class="value">{{ soldTotalApril|intcomma }}.00</p>
+        </div>
+
+        <div class="miscellaneous">
+            <p class="caption">Total Price of Miscellaneous Expenses For The Month of April {{ date|date:"Y" }}</p>
+            <p class="value">{{ miscellaneousTotalApril|intcomma }}.00</p>
+        </div>
+
+        <div class="total">
+            <p class="caption">Total Revenue For The Month of April {{ date|date:"Y" }}</p>
+            <p class="value">{{ monthlySumTotalApril|intcomma }}.00</p>
+        </div>
+    </div>
+
+
+
+    <!--MAY CALCULATIONS-->
+    <div class="january">
+        <div class="january_head">
+            <h1>MAY {{ date|date:"Y" }}</h1>
+        </div>
+
+        <div class="purchased">
+            <p class="caption">Total Price of Goods Purchased For The Month of May {{ date|date:"Y" }}</p>
+            <p class="value">{{ boughtTotalMay|intcomma }}.00</p>
+        </div>
+
+        <div class="sold">
+            <p class="caption">Total Price of Goods Sold For The Month of May {{ date|date:"Y" }}</p>
+            <p class="value">{{ soldTotalMay|intcomma }}.00</p>
+        </div>
+
+        <div class="miscellaneous">
+            <p class="caption">Total Price of Miscellaneous Expenses For The Month of May {{ date|date:"Y" }}</p>
+            <p class="value">{{ miscellaneousTotalMay|intcomma }}.00</p>
+        </div>
+
+        <div class="total">
+            <p class="caption">Total Revenue For The Month of May {{ date|date:"Y" }}</p>
+            <p class="value">{{ monthlySumTotalMay|intcomma }}.00</p>
+        </div>
+    </div>
+
+
+
+    <!--JUNE CALCULATIONS-->
+    <div class="january">
+        <div class="january_head">
+            <h1>JUNE {{ date|date:"Y" }}</h1>
+        </div>
+
+        <div class="purchased">
+            <p class="caption">Total Price of Goods Purchased For The Month of June {{ date|date:"Y" }}</p>
+            <p class="value">{{ boughtTotalJune|intcomma }}.00</p>
+        </div>
+
+        <div class="sold">
+            <p class="caption">Total Price of Goods Sold For The Month of June {{ date|date:"Y" }}</p>
+            <p class="value">{{ soldTotalJune|intcomma }}.00</p>
+        </div>
+
+        <div class="miscellaneous">
+            <p class="caption">Total Price of Miscellaneous Expenses For The Month of June {{ date|date:"Y" }}</p>
+            <p class="value">{{ miscellaneousTotalJune|intcomma }}.00</p>
+        </div>
+
+        <div class="total">
+            <p class="caption">Total Revenue For The Month of June {{ date|date:"Y" }}</p>
+            <p class="value">{{ monthlySumTotalJune|intcomma }}.00</p>
+        </div>
+    </div>
+
+
+
+    <!--JULY CALCULATIONS-->
+    <div class="january">
+        <div class="january_head">
+            <h1>JULY {{ date|date:"Y" }}</h1>
+        </div>
+
+        <div class="purchased">
+            <p class="caption">Total Price of Goods Purchased For The Month of July {{ date|date:"Y" }}</p>
+            <p class="value">{{ boughtTotalJuly|intcomma }}.00</p>
+        </div>
+
+        <div class="sold">
+            <p class="caption">Total Price of Goods Sold For The Month of July {{ date|date:"Y" }}</p>
+            <p class="value">{{ soldTotalJuly|intcomma }}.00</p>
+        </div>
+
+        <div class="miscellaneous">
+            <p class="caption">Total Price of Miscellaneous Expenses For The Month of July {{ date|date:"Y" }}</p>
+            <p class="value">{{ miscellaneousTotalJuly|intcomma }}.00</p>
+        </div>
+
+        <div class="total">
+            <p class="caption">Total Revenue For The Month of July {{ date|date:"Y" }}</p>
+            <p class="value">{{ monthlySumTotalJuly|intcomma }}.00</p>
+        </div>
+    </div>
+
+
+
+    <!--AUGUST CALCULATIONS-->
+    <div class="january">
+        <div class="january_head">
+            <h1>AUGUST {{ date|date:"Y" }}</h1>
+        </div>
+
+        <div class="purchased">
+            <p class="caption"p>Total Price of Goods Purchased For The Month of August {{ date|date:"Y" }}</p>
+            <p class="value">{{ boughtTotalAugust|intcomma }}.00</p>
+        </div>
+
+        <div class="sold">
+            <p class="caption">Total Price of Goods Sold For The Month of August {{ date|date:"Y" }}</p>
+            <p class="value">{{ soldTotalAugust|intcomma }}.00</p>
+        </div>
+
+        <div class="miscellaneous">
+            <p class="caption">Total Price of Miscellaneous Expenses For The Month of August {{ date|date:"Y" }}</p>
+            <p class="value">{{ miscellaneousTotalAugust|intcomma }}.00</p>
+        </div>
+
+        <div class="total">
+            <p class="caption">Total Revenue For The Month of August {{ date|date:"Y" }}</p>
+            <p class="value">{{ monthlySumTotalAugust|intcomma }}.00</p>
+        </div>
+    </div>
+
+
+
+    <!--SEPTEMBER CALCULATIONS-->
+    <div class="january">
+        <div class="january_head">
+            <h1>SEPTEMBER {{ date|date:"Y" }}</h1>
+        </div>
+
+        <div class="purchased">
+            <p class="caption">Total Price of Goods Purchased For The Month of September {{ date|date:"Y" }}</p>
+            <p class="value">{{ boughtTotalSeptember|intcomma }}.00</p>
+        </div>
+
+        <div class="sold">
+            <p class="caption">Total Price of Goods Sold For The Month of September {{ date|date:"Y" }}</p>
+            <p class="value">{{ soldTotalSeptember|intcomma }}.00</p>
+        </div>
+
+        <div class="miscellaneous">
+            <p class="caption"p>Total Price of Miscellaneous Expenses For The Month of September {{ date|date:"Y" }}</p>
+            <p class="value">{{ miscellaneousTotalSeptember|intcomma }}.00</p>
+        </div>
+
+        <div class="total">
+            <p class="caption">Total Revenue For The Month of September {{ date|date:"Y" }}</p>
+            <p class="value">{{ monthlySumTotalSeptember|intcomma }}.00</p>
+        </div>
+    </div>
+
+
+
+    <!--OCTOBER CALCULATIONS-->
+    <div class="january">
+        <div class="january_head">
+            <h1>OCTOBER {{ date|date:"Y" }}</h1>
+        </div>
+
+        <div class="purchased">
+            <p class="caption">Total Price of Goods Purchased For The Month of October {{ date|date:"Y" }}</p>
+            <p class="value">{{ boughtTotalOctober|intcomma }}.00</p>
+        </div>
+
+        <div class="sold">
+            <p class="caption">Total Price of Goods Sold For The Month of October  {{ date|date:"Y" }}</p>
+            <p class="value">{{ soldTotalOctober|intcomma }}.00</p>
+        </div>
+
+        <div class="miscellaneous">
+            <p class="caption">Total Price of Miscellaneous Expenses For The Month of October {{ date|date:"Y" }}</p>
+            <p class="value">{{ miscellaneousTotalOctober|intcomma }}.00</p>
+        </div>
+
+        <div class="total">
+            <p class="caption">Total Revenue For The Month of October {{ date|date:"Y" }}</p>
+            <p class="value">{{ monthlySumTotalOctober|intcomma }}.00</p>
+        </div>
+    </div>
+
+
+
+    <!--NOVEMBER CALCULATIONS-->
+    <div class="january">
+        <div class="january_head">
+            <h1>NOVEMBER {{ date|date:"Y" }}</h1>
+        </div>
+
+        <div class="purchased">
+            <p class="caption">Total Price of Goods Purchased For The Month of November  {{ date|date:"Y" }}</p>
+            <p class="value">{{ boughtTotalNovember|intcomma }}.00</p>
+        </div>
+
+        <div class="sold">
+            <p class="caption">Total Price of Goods Sold For The Month of November  {{ date|date:"Y" }}</p>
+            <p class="value">{{ soldTotalNovember|intcomma }}.00</p>
+        </div>
+
+        <div class="miscellaneous">
+            <p class="caption">Total Price of Miscellaneous Expenses For The Month of November {{ date|date:"Y" }}</p>
+            <p class="value">{{ miscellaneousTotalNovember|intcomma }}.00</p>
+        </div>
+
+        <div class="total">
+            <p class="caption">Total Revenue For The Month of November {{ date|date:"Y" }}</p>
+            <p class="value">{{ monthlySumTotalNovember|intcomma }}.00</p>
+        </div>
+    </div>
+
+
+
+    <!--DECEMBER CALCULATIONS-->
+    <div class="january">
+        <div class="january_head">
+            <h1>DECEMBER {{ date|date:"Y" }}</h1>
+        </div>
+
+        <div class="purchased">
+            <p class="caption">Total Price of Goods Purchased For The Month of December  {{ date|date:"Y" }}</p>
+            <p class="value">{{ boughtTotalDecember|intcomma }}.00</p>
+        </div>
+
+        <div class="sold">
+            <p class="caption">Total Price of Goods Sold For The Month of December  {{ date|date:"Y" }}</p>
+            <p class="value">{{ soldTotalDecember|intcomma }}.00</p>
+        </div>
+
+        <div class="miscellaneous">
+            <p class="caption">Total Price of Miscellaneous Expenses For The Month of December {{ date|date:"Y" }}</p>
+            <p class="value">{{ miscellaneousTotalDecember|intcomma }}.00</p>
+        </div>
+
+        <div class="total">
+            <p class="caption">Total Revenue For The Month of December {{ date|date:"Y" }}</p>
+            <p class="value">{{ monthlySumTotalDecember|intcomma }}.00</p>
+        </div>
+    </div>
+
+</body>
+</html>

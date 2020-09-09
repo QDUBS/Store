@@ -1,0 +1,77 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html PUBLIC>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search Result</title>
+    
+    <link rel="stylesheet" href="{% static 'bootstrap-4.5.1-dist/css/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap-4.5.1-dist/css/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
+    {% load crispy_forms_tags %}
+
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <div class="search_interface">
+        <form method="GET" action="{% url 'search' %}">
+            <div class="form_group">
+                <input name="query" type="search" placeholder="Search Item" class="searchbox"/>
+                <button type="submit" class="search_icon">
+                    <i class="fa fa-search" aria-hidden="true" id="search_icon"></i>
+                </button>
+            </div>        
+        </form>
+    </div>
+
+
+    <div class="content">
+        {% if results %}
+            <table style="width: 100%;">
+                <tr>
+                    <th>Supplies Purchased</th>
+                    <th>Supplies Sold</th>
+                    <th>Miscellaneous Expenses</th>
+                </tr>
+
+                {% for item in results %}
+                    <tr>
+                        <td>
+                            {% if item.type == '-' %}
+                                <p class="item_description">{{ item.description }} - {{ item.value|intcomma }}.00 <span class="item_value"> {{ item.date|date }}</span> </p>
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            {% if item.type == '+' %}
+                                <p class="item_description">{{ item.description }} - {{ item.value|intcomma }}.00 <span class="item_value"> {{ item.date|date }}</span> </p>
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            {% if item.type == '--' %}
+                                <p class="item_description">{{ item.description }} - {{ item.value|intcomma }}.00 <span class="item_value"> {{ item.date|date }}</span> </p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <div class="no_match">
+                <h3>No matches for "{{ query }}"</h3>
+            </div>
+        {% endif %}
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,93 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: black;
+}
+
+h1 {
+    color: white;
+    font: 400 30px 'Myriad Pro';
+    position: relative;
+    top: 10px;
+    text-align: center;
+}
+
+.january {
+    background-color: #000B15;
+    width: 100%;
+}
+
+.january_head {
+    width: 100%;
+    height: 50px;
+}
+
+.purchased {
+    display: flex;
+    background-color: #F3F3F3;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #999;
+}
+
+.sold {
+    display: flex;
+    background-color: #F3F3F3;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #999;
+}
+
+.miscellaneous {
+    display: flex;
+    background-color: #F3F3F3;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #999;
+}
+
+.total {
+    display: flex;
+    background-color: #CCC;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #333;
+}
+
+.caption {
+    font: 500 16px 'Myriad Pro';
+    position: relative;
+    top: 18px;
+    padding-left: 150px;
+}
+
+.purchased .value {
+    font: 500 16px 'Myriad Pro';
+    position: relative;
+    top: 18px;
+    left: 350px;
+}
+
+.sold .value {
+    font: 500 16px 'Myriad Pro';
+    position: relative;
+    top: 18px;
+    left: 392px;
+}
+
+.miscellaneous .value {
+    font: 500 16px 'Myriad Pro';
+    position: relative;
+    top: 18px;
+    left: 305px;
+}
+
+.total .value {
+    font: 500 16px 'Myriad Pro';
+    position: relative;
+    top: 18px;
+    left: 466px;
+}

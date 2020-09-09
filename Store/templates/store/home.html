@@ -1,0 +1,188 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html PUBLIC>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    
+    <link rel="stylesheet" href="{% static 'bootstrap-4.5.1-dist/css/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap-4.5.1-dist/css/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    {% load crispy_forms_tags %}
+
+</head>
+
+<body onLoad="start()">
+	<input type="checkbox" id="check">
+	
+    <header class="head">
+    	<label for="check">
+            <p>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-justify" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </p>
+        </label>
+        
+        <div class="right_area">
+        	<a class="logout_btn" href="{% url 'logout' %}">Logout</a>
+        </div>
+    </header>	
+    
+    <!--SIDEBAR-->
+    <div class="sidebar">
+    	<center>
+            <img class="profile_img" alt="" src="{{ user.userprofile.image.url }}" width="100" height="100"/>
+            <h4 class="username">{{ user.username }}</h4>
+        </center>
+        
+        <div class="search_interface">
+            <form method="GET" action="{% url 'search' %}">
+                <div class="form_group">
+                    <input name="query" type="search" placeholder="Search Item" class="searchbox"/>
+                    <button type="submit" class="search_icon">
+                        <i class="fa fa-search" aria-hidden="true" id="search_icon"></i>
+                    </button>
+                </div>        
+            </form>
+        </div>
+
+        <a href="{% url 'monthly' %}"><i class="fa fa-hourglass-half" aria-hidden="true"></i><span>Monthly Records</span></a>
+        <a href="{% url 'monthlycalc' %}"><i class="fa fa-calculator" aria-hidden="true"></i></i><span>Revenue Calculations</span></a>
+    </div>
+    
+    <div class="content"></div>
+    
+	<div class="content">
+    	<!--HEADER-->
+    	<header>
+    		<div class="image">
+        		<img class="header_image" src="{% static 'images/wallpaper_05.png' %}">
+        	</div>
+        
+        	<div class="overlay">
+            	<header class="header_info">
+            		<div class="header_text">
+            			DAILY SUPPLIES RECORD FOR <span class="header_month"> {{ date|date }}</span>
+            		</div>
+            	
+            		<div class="header_overall_value">+ {{ sumTotal|intcomma }}.00</div>
+            	
+            		<div class="header_supplies">
+            			<div class="header_supplies-text">SUPPLIES PURCHASED</div>
+                		<div class="header_supplies-value"> - {{ boughtTotal|intcomma }}.00</div>
+            		</div>
+                    
+            		<div class="header_supplies-sold">
+            			<div class="header_supplies_sold-text">SUPPLIES SOLD</div>
+                		<div class="header_supplies_sold-value"> + {{ soldTotal|intcomma }}.00</div>
+            		</div>
+            	
+            	
+            		<div class="header_miscellaneous_expenses">
+            			<div class="header_miscellaneous_expenses-text">MISCELLANEOUS EXPENSES</div>
+                		<div class="header_miscellaneous_expenses-value"> - {{ miscellaneousTotal|intcomma }}.00</div>
+            		</div>
+     			</header>	
+        	</div><!---End of Overlay-->
+    	</header>
+
+
+        <!--MIDDLE/DESCRIPTION PART-->
+        <div class="add_description_interface">
+            <div class="add">
+            	<div class="add_container">
+                	<form method="POST">
+                        {% csrf_token %}
+
+                        <div class="form-row">
+                            <div class="form-group col-md-2 mb-0" id="form-row">
+                                {{ form.type|as_crispy_field }}
+                            </div>
+            
+                            <div class="form-group col-md-4 mb-0" id="form-row-description">
+                                {{ form.description|as_crispy_field }}
+                            </div>
+            
+                            <div class="form-group col-md-4 mb-0" id="form-row-value">
+                                {{ form.value|as_crispy_field }}
+                            </div>
+                        </div>    
+                        
+                        <button class="item_button" type="submit"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!--ITEMS PART-->
+        <div class="items_container">
+       	 	
+            <div class="items_container_house">
+                <!--SUPPLIES PURCHASED COLUMN-->
+                <div class="container_supplies_bought">
+                    <h3 class="container_supplies-title">SUPPLIES PURCHASED</h3>
+
+                    <div class="container_supplies-list">
+                        {% for item in bought %}
+                            <div class="item_supplies_bought">
+                                <div class="item_description">{{ item.description }}</div>
+                                <div class="item_value">- {{ item.value|intcomma }}.00</div>
+                                <a href="{% url 'delete' item.id %}" class="item_delete_btn-1"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div><!--End Of Item Container House-->
+
+
+            <div class="items_container_house">
+                <!--SUPPLIES SOLD COLUMN-->
+                <div class="container_supplies_sold">
+                    <h3 class="container_supplies-sold_title">SUPPLIES SOLD</h3>
+                    
+                    <div class="container_supplies-sold_list">
+                        {% for item in sold %}
+                            <div class="item_supplies_sold">
+                                <div class="item_description">{{ item.description }}</div>
+                                <div class="item_value">+ {{ item.value|intcomma }}.00</div>
+                                <a href="{% url 'delete' item.id %}" class="item_delete_btn-2"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div><!--End Of Item Container House-->
+
+
+            <div class="items_container_house">
+                <!--MISCELLANEOUS EXPENSES COLUMN-->
+                <div class="items_container_miscellaneous">
+                    <h3 class="container_miscellaneous-title">MISCELLANEOUS EXPENSES</h3>
+                    
+                    <div class="container_miscellaneous-list">
+                        {% for item in miscellaneous %}
+                            <div class="miscellaneous_exp">
+                                <div class="item_description">{{ item.description }}</div>
+                                <div class="item_value">- {{ item.value|intcomma }}.00</div>
+                                <a href="{% url 'delete' item.id %}" class="item_delete_btn-3"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div><!--End Of Item Container House-->
+	
+        </div><!--End Of Items' Container-->
+
+
+    </div><!--End Of Content-->           
+
+
+</body>
+</html>
